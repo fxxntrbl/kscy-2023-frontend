@@ -1,6 +1,8 @@
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:kscy_2023_frontend/pages/home/daily.dart';
+import 'package:kscy_2023_frontend/utils/daily_value.dart';
 import 'package:kscy_2023_frontend/widgets/lecture.dart';
 import 'package:tuple/tuple.dart';
 
@@ -27,10 +29,10 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: TimeLineLayout(
                 builder: (index) {
-                  return Text("Hello $index");
+                  return DailyPage(index: index);
                 },
                 titleBuilder: (index) {
-                  return Tuple2("Day${index + 1}", "Day ${index + 1} 내용입니다.");
+                  return Tuple2("Day ${index + 1}", getDailyValue(index));
                 },
                 pointXGap: 54,
                 paddingHorizontal: 34,

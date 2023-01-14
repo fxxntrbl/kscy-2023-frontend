@@ -18,7 +18,7 @@ class TimeLineLayout extends StatefulWidget {
     required this.builder,
     required this.titleBuilder,
     required this.count,
-    this.color = const Color(0xFFcccccc),
+    this.color = const Color.fromRGBO(0, 0, 0, 0.6),
     this.pointXGap = 20,
     this.paddingHorizontal = 40,
     Key? key,
@@ -38,7 +38,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
   void initState() {
     pos = AnimatedValue(
         initialValue: 0,
-        duration: const Duration(milliseconds: 600),
+        duration: const Duration(milliseconds: 800),
         curve: Curves.ease,
         vsync: this);
     pos.addListener(() {
@@ -55,14 +55,14 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
 
   void getTwoPages() {
     int firstIndex = pos.value.floor();
-    if (!cachedWidget.containsKey(firstIndex)) {
-      cachedWidget[firstIndex] = widget.builder(firstIndex);
-      cachedTitle[firstIndex] = widget.titleBuilder(firstIndex);
-    }
-    if (!cachedWidget.containsKey(firstIndex + 1)) {
-      cachedWidget[firstIndex + 1] = widget.builder(firstIndex + 1);
-      cachedTitle[firstIndex + 1] = widget.titleBuilder(firstIndex + 1);
-    }
+    //if (!cachedWidget.containsKey(firstIndex)) {
+    cachedWidget[firstIndex] = widget.builder(firstIndex);
+    cachedTitle[firstIndex] = widget.titleBuilder(firstIndex);
+    //}
+    //if (!cachedWidget.containsKey(firstIndex + 1)) {
+    cachedWidget[firstIndex + 1] = widget.builder(firstIndex + 1);
+    cachedTitle[firstIndex + 1] = widget.titleBuilder(firstIndex + 1);
+    //}
   }
 
   Widget buildPage(int index) {
@@ -80,35 +80,37 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     cachedTitle[index]!.item1,
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  const SizedBox(height: 4),
                   Text(
                     cachedTitle[index]!.item2,
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                   ),
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: const [
                   Text(
                     "커리큘럼 수정",
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  const SizedBox(height: 4),
                   Text(
                     "AI가 생성된 강좌를 수정할 수 있어요",
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                   ),
                 ],
@@ -180,7 +182,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     pos: pos.value,
                   ),
                 ),
-                const SizedBox(height: 15),
+                const SizedBox(height: 16),
                 Expanded(
                   child: LayoutBuilder(builder: (context, innerConstraints) {
                     return Stack(
@@ -254,10 +256,15 @@ class TimerLineGraphic extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
-                      border: Border.all(color: color, width: lerpDouble(6, 2, max(0.0, min(1.0, (pos - index).abs())))!),
+                      border: Border.all(
+                          color: color,
+                          width: lerpDouble(
+                              6, 2, max(0.0, min(1.0, (pos - index).abs())))!),
                     ),
-                    width: lerpDouble(12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
-                    height: lerpDouble(12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
+                    width: lerpDouble(
+                        12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
+                    height: lerpDouble(
+                        12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
                   ),
                   left: (index - pos) * pointXGap + paddingHorizontal,
                 ),
