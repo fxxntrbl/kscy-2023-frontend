@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
 class LectureCard extends StatelessWidget {
-  const LectureCard({super.key});
+  const LectureCard(
+      {Key? key,
+      required this.title,
+      required this.description,
+      required this.day,
+      required this.userPref,
+      required this.complete})
+      : super(key: key);
+
+  final String title;
+  final String description;
+  final int day;
+  final bool userPref;
+  final bool complete;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +35,7 @@ class LectureCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Flutter 주요 위젯",
+                  this.title,
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -30,7 +43,7 @@ class LectureCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  "Scaffold, Container 등 주요 위젯 배우기",
+                  this.description,
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
@@ -62,7 +75,7 @@ class LectureCard extends StatelessWidget {
                 size: 16, color: Color.fromRGBO(0, 0, 0, 0.4)),
             const SizedBox(width: 6),
             Text(
-              "Day 4까지 수강 권장",
+              "Day ${this.day}까지 수강 권장",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,

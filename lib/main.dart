@@ -84,7 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            LectureCard(),
+            LectureCard(
+                title: "Flutter 주요 위젯",
+                description: "Scaffold, Container 등 주요 위젯 배우기",
+                day: 4,
+                userPref: false,
+                complete: false),
           ],
         ),
       ),
