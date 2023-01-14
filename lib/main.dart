@@ -87,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
             LectureCard(
                 title: "Flutter 주요 위젯",
                 description: "Scaffold, Container 등 주요 위젯 배우기",
-                day: 4,
-                userPref: false,
+                day: 6,
+                userPref: true,
                 complete: false),
           ],
         ),

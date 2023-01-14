@@ -54,15 +54,16 @@ class LectureCard extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(Icons.close_rounded, size: 20, color: Color(0x88FF0000)),
+                Icon(complete ? Icons.check_rounded : Icons.close_rounded,
+                    size: 20, color: Color(complete ? 0x8829C629 : 0x88FF0000)),
                 const SizedBox(width: 4),
                 Text(
-                  "미완료",
+                  complete ? "완료 " : "미완료",
                   style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                       letterSpacing: -0.4,
-                      color: Color(0x88FF0000)),
+                      color: Color(complete ? 0x8829C629 : 0x88FF0000)),
                 ),
               ],
             )
@@ -83,11 +84,15 @@ class LectureCard extends StatelessWidget {
                   color: Color.fromRGBO(0, 0, 0, 0.4)),
             ),
             const SizedBox(width: 12),
-            Icon(Icons.smart_toy_outlined,
-                size: 16, color: Color.fromRGBO(0, 0, 0, 0.4)),
+            Icon(
+                (userPref)
+                    ? Icons.person_outline_rounded
+                    : Icons.smart_toy_outlined,
+                size: 16,
+                color: Color.fromRGBO(0, 0, 0, 0.4)),
             const SizedBox(width: 6),
             Text(
-              "AI가 추천한 맞춤 강좌에요",
+              (userPref) ? "경훈님이 선택한 강좌에요" : "AI가 추천한 맞춤 과제에요",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
