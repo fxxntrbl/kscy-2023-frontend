@@ -93,36 +93,52 @@ class _SocialPageState extends State<SocialPage> {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SearchTag(
-                    icon: Icons.stacked_line_chart_rounded,
-                    title: "누적",
-                    enabled: true,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SearchTag(
-                    icon: Icons.timer_outlined,
-                    title: "시간",
-                    enabled: false,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  SearchTag(
-                    icon: Icons.event_rounded,
-                    title: "일간",
-                    enabled: false,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SearchTag(
+                      icon: Icons.stacked_line_chart_rounded,
+                      title: "누적",
+                      enabled: true,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SearchTag(
+                      icon: Icons.timer_outlined,
+                      title: "시간",
+                      enabled: false,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SearchTag(
+                      icon: Icons.event_outlined,
+                      title: "일간",
+                      enabled: false,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SearchTag(
+                      icon: Icons.date_range_outlined,
+                      title: "주간",
+                      enabled: false,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    SearchTag(
+                      icon: Icons.calendar_month_outlined,
+                      title: "월간",
+                      enabled: false,
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(

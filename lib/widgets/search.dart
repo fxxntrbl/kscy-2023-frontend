@@ -17,6 +17,11 @@ class _SearchBarState extends State<SearchBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            letterSpacing: -0.4,
+            color: Colors.black),
         decoration: InputDecoration(
           hintText: "검색어를 입력해주세요",
           prefixIcon: Padding(

@@ -100,7 +100,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                   Text(
                     "커리큘럼 수정",
                     style: TextStyle(
-                      color: Color(0xFF666666),
+                      color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
