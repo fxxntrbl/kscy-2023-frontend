@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kscy_2023_frontend/widgets/chat.dart';
 import '../widgets/topbar.dart';
+import 'package:kscy_2023_frontend/widgets/chat_suggestion.dart';
 
 class SocialPage extends StatefulWidget {
   const SocialPage({super.key});
@@ -60,6 +61,37 @@ class _SocialPageState extends State<SocialPage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 48,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "그룹 찾아보기",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
+                          letterSpacing: -0.4),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+              ],
+            ),
+          ),
+          ChatSuggestion(
+              title: "title",
+              description: "description",
+              minNum: 4,
+              maxNum: 8,
+              lastOnline: 30)
         ],
       ),
     );

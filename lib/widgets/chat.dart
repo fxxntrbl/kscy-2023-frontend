@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:kscy_2023_frontend/widgets/chat_suggestion.dart';
 
 class ChatWidget extends StatelessWidget {
   const ChatWidget(
@@ -49,7 +50,7 @@ class ChatWidget extends StatelessWidget {
                 color: Color.fromRGBO(0, 0, 0, 0.4),
                 letterSpacing: -0.4,
               ),
-            )
+            ),
           ],
         )
       ]),
