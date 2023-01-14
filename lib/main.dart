@@ -76,6 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           selectedItemColor: Colors.black,
           unselectedItemColor: Color.fromRGBO(0, 0, 0, 0.3),
+          unselectedFontSize: 14,
+          selectedFontSize: 14,
         ),
       ),
     );
