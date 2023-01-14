@@ -64,6 +64,63 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
     }
   }
 
+  Widget buildPage(int index) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    cachedTitle[index]!.item1,
+                    style: TextStyle(
+                      color: Color(0xFF666666),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    cachedTitle[index]!.item2,
+                    style: TextStyle(
+                      color: Color(0xFF666666),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "커리큘럼 수정",
+                    style: TextStyle(
+                      color: Color(0xFF666666),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "AI가 생성된 강좌를 수정할 수 있어요",
+                    style: TextStyle(
+                      color: Color(0xFF666666),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 20),
+        Expanded(child: cachedWidget[index]!),
+      ],
+    );
+  }
+
   bool isDragging = false;
   double dragStartValue = 0;
   double dragStartPosX = 0;
@@ -108,45 +165,49 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
               pos.value = newValue;
             }
           },
-          child: Column(
-            children: [
-              SizedBox(
-                width: constraints.maxWidth,
-                child: TimerLineGraphic(
-                  pointXGap: widget.pointXGap,
-                  count: widget.count,
-                  color: widget.color,
-                  paddingHorizontal: widget.paddingHorizontal,
-                  pos: pos.value,
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                SizedBox(
+                  width: constraints.maxWidth,
+                  child: TimerLineGraphic(
+                    pointXGap: widget.pointXGap,
+                    count: widget.count,
+                    color: widget.color,
+                    paddingHorizontal: widget.paddingHorizontal,
+                    pos: pos.value,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: LayoutBuilder(builder: (context, innerConstraints) {
-                  return Stack(
-                    children: [
-                      Positioned(
-                        left: (pos.value.truncate() - pos.value) *
-                            constraints.maxWidth,
-                        child: SizedBox(
-                          width: constraints.maxWidth,
-                          height: innerConstraints.maxHeight,
-                          child: cachedWidget[firstIndex]!,
+                const SizedBox(height: 15),
+                Expanded(
+                  child: LayoutBuilder(builder: (context, innerConstraints) {
+                    return Stack(
+                      children: [
+                        Positioned(
+                          left: (pos.value.truncate() - pos.value) *
+                              constraints.maxWidth,
+                          child: SizedBox(
+                            width: constraints.maxWidth,
+                            height: innerConstraints.maxHeight,
+                            child: buildPage(firstIndex),
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        left: (1 + pos.value.truncate() - pos.value) *
-                            constraints.maxWidth,
-                        child: SizedBox(
-                          width: constraints.maxWidth,
-                          height: innerConstraints.maxHeight,
-                          child: cachedWidget[firstIndex + 1]!,
+                        Positioned(
+                          left: (1 + pos.value.truncate() - pos.value) *
+                              constraints.maxWidth,
+                          child: SizedBox(
+                            width: constraints.maxWidth,
+                            height: innerConstraints.maxHeight,
+                            child: buildPage(firstIndex + 1),
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                }),
-              ),
-            ],
+                      ],
+                    );
+                  }),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -172,7 +233,6 @@ class TimerLineGraphic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(pos);
     return LayoutBuilder(builder: (context, constraints) {
       return ClipRect(
         child: SizedBox(
@@ -195,8 +255,8 @@ class TimerLineGraphic extends StatelessWidget {
                       color: Colors.white,
                       border: Border.all(color: color, width: 2),
                     ),
-                    width: 12,
-                    height: 12,
+                    width: 8,
+                    height: 8,
                   ),
                   left: (index - pos) * pointXGap + paddingHorizontal,
                 ),
