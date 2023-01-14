@@ -29,10 +29,15 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: TimeLineLayout(
                 builder: (index) {
-                  return DailyPage(index: index);
+                  return Column(children: [
+                    const SizedBox(
+                      height: 36,
+                    ),
+                    DailyPage(index: index)
+                  ]);
                 },
                 titleBuilder: (index) {
-                  return Tuple2("Day ${index + 1}", getDailyValue(index));
+                  return Tuple2("Day ${index + 1}", getDailyValue(2));
                 },
                 pointXGap: 54,
                 paddingHorizontal: 34,
