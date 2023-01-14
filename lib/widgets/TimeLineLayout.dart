@@ -80,7 +80,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     cachedTitle[index]!.item1,
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -89,7 +89,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     cachedTitle[index]!.item2,
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 14,
+                      fontSize: 12,
                     ),
                   ),
                 ],
@@ -101,7 +101,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     "커리큘럼 수정",
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -110,7 +110,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                     "AI가 생성된 강좌를 수정할 수 있어요",
                     style: TextStyle(
                       color: Color(0xFF666666),
-                      fontSize: 14,
+                      fontSize: 12,
                     ),
                   ),
                 ],

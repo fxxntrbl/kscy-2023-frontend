@@ -26,7 +26,7 @@ class TopBar extends StatelessWidget {
                     "와플러터샌즈",
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 18,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -34,7 +34,7 @@ class TopBar extends StatelessWidget {
                     "개발 / 앱 / Flutter",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
+                        fontSize: 14,
                         color: Color.fromRGBO(0, 0, 0, 0.5),
                         letterSpacing: -0.4),
                   )

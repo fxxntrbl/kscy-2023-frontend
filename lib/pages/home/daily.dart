@@ -28,7 +28,7 @@ class DailyPage extends StatelessWidget {
                   "오늘 할당된 과제",
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 22,
+                      fontSize: 20,
                       letterSpacing: -0.4),
                 ),
               ),

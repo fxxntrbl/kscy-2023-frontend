@@ -28,12 +28,12 @@ class ChatSuggestion extends StatelessWidget {
           borderRadius: BorderRadius.circular(16)),
       child: Column(children: [
         Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
               'assets/group1.png',
-              width: 56,
-              height: 56,
+              width: 54,
+              height: 54,
             ),
             const SizedBox(
               width: 12,
@@ -45,7 +45,7 @@ class ChatSuggestion extends StatelessWidget {
                   this.title,
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: 16,
                       letterSpacing: -0.4),
                 ),
                 const SizedBox(height: 6),
@@ -53,7 +53,7 @@ class ChatSuggestion extends StatelessWidget {
                   this.description,
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontSize: 14,
                       letterSpacing: -0.4,
                       color: Color.fromRGBO(0, 0, 0, 0.6)),
                 )
@@ -64,26 +64,26 @@ class ChatSuggestion extends StatelessWidget {
         const SizedBox(height: 16),
         Row(
           children: [
-            Icon(Icons.info_outline_rounded,
+            Icon(Icons.group_rounded,
                 size: 16, color: Color.fromRGBO(0, 0, 0, 0.4)),
             const SizedBox(width: 6),
             Text(
               "${this.minNum}명 / ${this.maxNum}명",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontSize: 12,
                   letterSpacing: -0.4,
                   color: Color.fromRGBO(0, 0, 0, 0.4)),
             ),
             const SizedBox(width: 12),
             Icon(Icons.check_circle_outline_rounded,
-                size: 16, color: Color.fromRGBO(0, 0, 0, 0.4)),
+                size: 14, color: Color.fromRGBO(0, 0, 0, 0.4)),
             const SizedBox(width: 6),
             Text(
               "${this.lastOnline}분 전 온라인",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontSize: 12,
                   letterSpacing: -0.4,
                   color: Color.fromRGBO(0, 0, 0, 0.4)),
             ),

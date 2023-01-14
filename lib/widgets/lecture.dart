@@ -38,7 +38,7 @@ class LectureCard extends StatelessWidget {
                   this.title,
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: 16,
                       letterSpacing: -0.4),
                 ),
                 const SizedBox(height: 6),
@@ -46,7 +46,7 @@ class LectureCard extends StatelessWidget {
                   this.description,
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      fontSize: 16,
+                      fontSize: 14,
                       letterSpacing: -0.4,
                       color: Color.fromRGBO(0, 0, 0, 0.6)),
                 )
@@ -61,7 +61,7 @@ class LectureCard extends StatelessWidget {
                   complete ? "완료 " : "미완료",
                   style: TextStyle(
                       fontWeight: FontWeight.w700,
-                      fontSize: 16,
+                      fontSize: 14,
                       letterSpacing: -0.4,
                       color: Color(complete ? 0x8829C629 : 0x88FF0000)),
                 ),
@@ -79,7 +79,7 @@ class LectureCard extends StatelessWidget {
               "Day ${this.day}까지 수강 권장",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontSize: 12,
                   letterSpacing: -0.4,
                   color: Color.fromRGBO(0, 0, 0, 0.4)),
             ),
@@ -95,7 +95,7 @@ class LectureCard extends StatelessWidget {
               (userPref) ? "경훈님이 선택한 강좌에요" : "AI가 추천한 맞춤 과제에요",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 14,
+                  fontSize: 12,
                   letterSpacing: -0.4,
                   color: Color.fromRGBO(0, 0, 0, 0.4)),
             ),

@@ -33,7 +33,7 @@ class ChatWidget extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Color.fromRGBO(0, 0, 0, 0.6),
                 letterSpacing: -0.4,
@@ -45,7 +45,7 @@ class ChatWidget extends StatelessWidget {
             Text(
               desc,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: Color.fromRGBO(0, 0, 0, 0.4),
                 letterSpacing: -0.4,

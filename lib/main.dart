@@ -16,6 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      builder: (context, child) => MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          textScaleFactor: 1.0,
+        ),
+        child: child!,
+      ),
       theme: ThemeData(
         fontFamily: 'Pretendard',
         backgroundColor: Colors.white,
@@ -77,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
           selectedItemColor: Colors.black,
           unselectedItemColor: Color.fromRGBO(0, 0, 0, 0.3),
-          unselectedFontSize: 14,
-          selectedFontSize: 14,
+          unselectedFontSize: 12,
+          selectedFontSize: 12,
         ),
       ),
     );
