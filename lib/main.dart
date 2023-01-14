@@ -48,10 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
+      body: SafeArea(
+          child: IndexedStack(
         index: _selectedIndex,
         children: [HomePage(), SocialPage(), Blank(), Blank()],
-      ),
+      )),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color(0xFFF6f6f6),
