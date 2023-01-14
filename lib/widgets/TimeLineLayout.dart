@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:kscy_2023_frontend/utils/animated_value.dart';
@@ -253,25 +254,13 @@ class TimerLineGraphic extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
-                      border: Border.all(color: color, width: 2),
+                      border: Border.all(color: color, width: lerpDouble(6, 2, max(0.0, min(1.0, (pos - index).abs())))!),
                     ),
-                    width: 8,
-                    height: 8,
+                    width: lerpDouble(12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
+                    height: lerpDouble(12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
                   ),
                   left: (index - pos) * pointXGap + paddingHorizontal,
                 ),
-              ),
-              Positioned(
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: color,
-                    border: Border.all(color: color, width: 2),
-                  ),
-                  width: 12,
-                  height: 12,
-                ),
-                left: paddingHorizontal,
               ),
             ],
           ),
