@@ -31,9 +31,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: DateWidget(
-                lectureNum: pages[index].length,
-              ),
+              child: DateWidget(idx: index, lectureNum: getNum(index)),
             ),
             const SizedBox(
               height: 36,

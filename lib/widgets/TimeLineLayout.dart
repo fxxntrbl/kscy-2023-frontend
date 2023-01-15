@@ -167,11 +167,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                   widget.count - 1,
                   max(
                       0,
-                      dragStartValue.floorToDouble() +
-                          (details.velocity.pixelsPerSecond.dx.sign ==
-                                  dragStartDirection
-                              ? dragStartDirection
-                              : 0) -
+                      dragStartValue.floorToDouble() -
                           details.velocity.pixelsPerSecond.dx.sign));
 
               pos.value = newValue;
