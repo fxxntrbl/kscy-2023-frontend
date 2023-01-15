@@ -22,8 +22,6 @@ class _SocialPageState extends State<SocialPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TopBar(),
-            const SizedBox(height: 36),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(

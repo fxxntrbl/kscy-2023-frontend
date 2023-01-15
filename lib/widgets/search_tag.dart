@@ -39,9 +39,8 @@ class SearchTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-      decoration: BoxDecoration(
-          border: Border.all(color: this.getBorderColor()),
-          borderRadius: BorderRadius.circular(99),
+      decoration: ShapeDecoration(
+          shape: StadiumBorder(side: BorderSide(color: this.getBorderColor())),
           color: getBackgroundColor()),
       child: Row(
         children: [

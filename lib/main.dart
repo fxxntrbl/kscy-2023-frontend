@@ -3,6 +3,7 @@ import 'package:kscy_2023_frontend/pages/blank.dart';
 import 'package:kscy_2023_frontend/widgets/lecture.dart';
 import 'package:kscy_2023_frontend/pages/home.dart';
 import 'package:kscy_2023_frontend/pages/social.dart';
+import 'package:kscy_2023_frontend/widgets/topbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,14 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-          child: IndexedStack(
-        index: _selectedIndex,
-        children: [HomePage(), SocialPage(), Blank(), Blank()],
+          child: Column(
+        children: [
+          TopBar(),
+          const SizedBox(
+            height: 36,
+          ),
+          Expanded(
+            child: IndexedStack(
+              index: _selectedIndex,
+              children: [HomePage(), SocialPage(), Blank(), Blank()],
+            ),
+          ),
+        ],
       )),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Color(0xFFF6f6f6),
+          color: Color(0xFFFAFAFA),
           border: Border(
               top: BorderSide(width: 1.0, color: Color.fromRGBO(0, 0, 0, 0.1))),
         ),

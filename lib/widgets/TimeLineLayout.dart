@@ -139,12 +139,12 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
           onHorizontalDragStart: (details) {
             isDragging = true;
             dragStartValue = pos.value;
-            print(isDragging);
+            // print(isDragging);
             pos.setValueAsInitial(pos.value, skipEvent: true);
             dragStartPosX = details.localPosition.dx;
           },
           onHorizontalDragUpdate: (details) {
-            print("drag update");
+            //print("drag update");
             double diff = details.localPosition.dx - dragStartPosX;
             double newValue = min(widget.count - 1,
                 max(0, dragStartValue - diff / constraints.maxWidth));

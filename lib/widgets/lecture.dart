@@ -23,7 +23,7 @@ class LectureCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Color(0xFFF6F6F6),
+          color: Color(0xFFFAFAFA),
           border: Border.all(width: 1, color: Color.fromRGBO(0, 0, 0, 0.1)),
           borderRadius: BorderRadius.circular(16)),
       child: Column(children: [

@@ -20,12 +20,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TopBar(),
-            const SizedBox(height: 50),
             Expanded(
               child: TimeLineLayout(
                 builder: (index) {
