@@ -4,6 +4,7 @@ import 'package:kscy_2023_frontend/widgets/lecture.dart';
 import 'package:kscy_2023_frontend/pages/home.dart';
 import 'package:kscy_2023_frontend/pages/social.dart';
 import 'package:kscy_2023_frontend/widgets/topbar.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('ko', 'KR'),
+      ],
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
           textScaleFactor: 1.0,

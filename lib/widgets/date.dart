@@ -12,13 +12,28 @@ class DateWidget extends StatefulWidget {
 
 class _DateWidgetState extends State<DateWidget> {
   String getDateTime() {
-    return "";
+    return DateFormat('M월 dd일 (E)', 'ko').format(DateTime.now());
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Text(getDateTime()), Text("data")],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          getDateTime(),
+          style: TextStyle(
+              fontSize: 20, letterSpacing: -0.4, fontWeight: FontWeight.w400),
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        Text(
+          "n개의 과제가 있습니다.",
+          style: TextStyle(
+              fontSize: 24, letterSpacing: -0.4, fontWeight: FontWeight.w600),
+        )
+      ],
     );
   }
 }
