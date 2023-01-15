@@ -187,7 +187,22 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                   child: LayoutBuilder(builder: (context, innerConstraints) {
                     return Stack(
                       children: [
+                        ...cachedWidget.keys.map(
+                          (key) => key != firstIndex && key != (firstIndex + 1)
+                              ? Opacity(
+                                  key: ValueKey(key),
+                                  opacity: 0,
+                                  // maintainState: true,
+                                  child: SizedBox(
+                                    width: constraints.maxWidth,
+                                    height: innerConstraints.maxHeight,
+                                    child: buildPage(key),
+                                  ),
+                                )
+                              : const SizedBox(),
+                        ),
                         Positioned(
+                          key: ValueKey(firstIndex),
                           left: (pos.value.truncate() - pos.value) *
                               constraints.maxWidth,
                           child: SizedBox(
@@ -197,6 +212,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                           ),
                         ),
                         Positioned(
+                          key: ValueKey(firstIndex + 1),
                           left: (1 + pos.value.truncate() - pos.value) *
                               constraints.maxWidth,
                           child: SizedBox(
@@ -252,6 +268,7 @@ class TimerLineGraphic extends StatelessWidget {
               ...List<Widget>.generate(
                 count,
                 (index) => Positioned(
+                  left: (index - pos) * pointXGap + paddingHorizontal,
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
@@ -266,7 +283,6 @@ class TimerLineGraphic extends StatelessWidget {
                     height: lerpDouble(
                         12, 8, max(0.0, min(1.0, (pos - index).abs())))!,
                   ),
-                  left: (index - pos) * pointXGap + paddingHorizontal,
                 ),
               ),
             ],
