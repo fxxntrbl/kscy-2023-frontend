@@ -18,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +40,11 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: TimeLineLayout(
+                onIndexChanged: (index) {
+                  setState(() {
+                    this.index = index;
+                  });
+                },
                 builder: (index) {
                   return Column(children: [
                     const SizedBox(

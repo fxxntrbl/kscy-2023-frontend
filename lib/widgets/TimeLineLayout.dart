@@ -9,6 +9,7 @@ class TimeLineLayout extends StatefulWidget {
   final double pointXGap;
   final int count;
   final Color color;
+  final void Function(int index)? onIndexChanged;
   final Widget Function(int index) builder;
   final double paddingHorizontal;
 
@@ -18,6 +19,7 @@ class TimeLineLayout extends StatefulWidget {
     required this.builder,
     required this.titleBuilder,
     required this.count,
+    this.onIndexChanged,
     this.color = const Color.fromRGBO(0, 0, 0, 0.6),
     this.pointXGap = 20,
     this.paddingHorizontal = 40,
@@ -33,6 +35,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
   late AnimatedValue<double> pos;
   Map<int, Widget> cachedWidget = {};
   Map<int, Tuple2<String, String>> cachedTitle = {};
+  int lastIndex = 0;
 
   @override
   void initState() {
@@ -43,6 +46,10 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
         vsync: this);
     pos.addListener(() {
       setState(() {});
+      if(pos.value.roundToDouble() != lastIndex) {
+        lastIndex = pos.value.round();
+        widget.onIndexChanged?.call(lastIndex);
+      }
     });
     super.initState();
   }
