@@ -46,7 +46,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
         vsync: this);
     pos.addListener(() {
       setState(() {});
-      if(pos.value.roundToDouble() != lastIndex) {
+      if (pos.value.roundToDouble() != lastIndex) {
         lastIndex = pos.value.round();
         widget.onIndexChanged?.call(lastIndex);
       }
@@ -133,6 +133,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
 
   bool isDragging = false;
   double dragStartValue = 0;
+  double dragStartDirection = 0;
   double dragStartPosX = 0;
 
   @override
@@ -146,6 +147,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
           onHorizontalDragStart: (details) {
             isDragging = true;
             dragStartValue = pos.value;
+            dragStartDirection = (pos.trueValue - pos.value).sign;
             // print(isDragging);
             pos.setValueAsInitial(pos.value, skipEvent: true);
             dragStartPosX = details.localPosition.dx;
@@ -165,7 +167,11 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                   widget.count - 1,
                   max(
                       0,
-                      dragStartValue.floorToDouble() -
+                      dragStartValue.floorToDouble() +
+                          (details.velocity.pixelsPerSecond.dx.sign ==
+                                  dragStartDirection
+                              ? dragStartDirection
+                              : 0) -
                           details.velocity.pixelsPerSecond.dx.sign));
 
               pos.value = newValue;
