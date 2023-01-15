@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kscy_2023_frontend/widgets/lecture.dart';
+import 'package:kscy_2023_frontend/utils/daily_value.dart';
 
 class DailyPage extends StatelessWidget {
   DailyPage({Key? key, required this.index}) : super(key: key);
@@ -33,40 +34,7 @@ class DailyPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              LectureCard(
-                  title: "title",
-                  description: "description",
-                  day: index + 3,
-                  userPref: true,
-                  complete: true),
-              const SizedBox(height: 16),
-              LectureCard(
-                  title: "title",
-                  description: "description",
-                  day: index + 3,
-                  userPref: false,
-                  complete: false),
-              const SizedBox(height: 16),
-              LectureCard(
-                  title: "title",
-                  description: "description",
-                  day: index + 3,
-                  userPref: false,
-                  complete: false),
-              const SizedBox(height: 16),
-              LectureCard(
-                  title: "title",
-                  description: "description",
-                  day: index + 3,
-                  userPref: false,
-                  complete: false),
-              const SizedBox(height: 16),
-              LectureCard(
-                  title: "title",
-                  description: "description",
-                  day: index + 3,
-                  userPref: false,
-                  complete: false)
+              ...pages[index],
             ],
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kscy_2023_frontend/pages/social/study_group_detail.dart';
 import 'package:kscy_2023_frontend/widgets/chat.dart';
 
 class StudyGroupScreen extends StatefulWidget {
@@ -18,55 +19,55 @@ class _StudyGroupScreenState extends State<StudyGroupScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.keyboard_arrow_left_rounded),
+                    icon: const Icon(
+                      Icons.keyboard_arrow_left_rounded,
+                      size: 24,
+                    ),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 12),
                   const Text(
-                    "내 스터디그룹",
+                    "스터디 그룹",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 20,
+                      fontSize: 24,
                       letterSpacing: -0.4,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Expanded(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.only(top: 10),
                   child: Column(
                     children: [
                       ChatWidget(
-                        title: "봇치더락앱개발자모임",
-                        desc: "안스 너무 무거워요 ㅋ큐 ・ 6시간 전",
-                        imageIndex: 2,
+                        title: "Flutter 공부방",
+                        desc: "Scaffold에서 이 에러 왜 나나요ㅠ ・ 2시간 전",
+                        imageIndex: 1,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const StudyGroupDetailScreen(),
+                            ),
+                          );
+                        },
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 16),
                       ChatWidget(
                         title: "봇치더락앱개발자모임",
                         desc: "안스 너무 무거워요 ㅋ큐 ・ 6시간 전",
                         imageIndex: 2,
                       ),
-                      const SizedBox(height: 20),
-                      ChatWidget(
-                        title: "봇치더락앱개발자모임",
-                        desc: "안스 너무 무거워요 ㅋ큐 ・ 6시간 전",
-                        imageIndex: 2,
-                      ),
-                      const SizedBox(height: 20),
-                      ChatWidget(
-                        title: "봇치더락앱개발자모임",
-                        desc: "안스 너무 무거워요 ㅋ큐 ・ 6시간 전",
-                        imageIndex: 2,
-                      ),
+                      const SizedBox(height: 16),
                     ],
                   ),
                 ),
