@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: DateWidget(
-                lectureNum: 5,
+                lectureNum: pages[index].length,
               ),
             ),
             const SizedBox(
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                   ]);
                 },
                 titleBuilder: (index) {
-                  return Tuple2("Day ${index + 1}", getDailyValue(2));
+                  return Tuple2("Day ${index + 1}", getDailyValue(index));
                 },
                 pointXGap: 54,
                 paddingHorizontal: 34,

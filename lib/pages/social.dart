@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:kscy_2023_frontend/pages/social/study_group.dart';
+import 'package:kscy_2023_frontend/pages/social/study_group_detail.dart';
 import 'package:kscy_2023_frontend/widgets/chat.dart';
 import 'package:kscy_2023_frontend/widgets/search.dart';
 import 'package:kscy_2023_frontend/widgets/search_tag.dart';
@@ -39,35 +40,41 @@ class _SocialPageState extends State<SocialPage> {
                       );
                     },
                     borderRadius: BorderRadius.circular(8),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                      child: Row(
-                        children: [
-                          Text(
-                            "내 스터디그룹",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                letterSpacing: -0.4),
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Icon(
-                            Icons.chevron_right_rounded,
-                            color: Color.fromRGBO(0, 0, 0, 0.5),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "내 스터디그룹",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                              letterSpacing: -0.4),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Icon(
+                          Icons.chevron_right_rounded,
+                          color: Color.fromRGBO(0, 0, 0, 0.5),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   ChatWidget(
-                      title: "Flutter 공부방",
-                      desc: "Scaffold에서 이 에러 왜 나나요ㅠ ・ 2시간 전",
-                      imageIndex: 1),
+                    title: "Flutter 공부방",
+                    desc: "Scaffold에서 이 에러 왜 나나요ㅠ ・ 2시간 전",
+                    imageIndex: 1,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StudyGroupDetailScreen(),
+                        ),
+                      );
+                    },
+                  ),
                   const SizedBox(
                     height: 16,
                   ),
@@ -159,29 +166,32 @@ class _SocialPageState extends State<SocialPage> {
               height: 20,
             ),
             ChatSuggestion(
-                title: "title",
-                description: "description",
-                minNum: 4,
+                title: "Flutter 같이베우기",
+                description: "#플러터 #같이배워요 #소통해요",
+                minNum: 6,
+                maxNum: 10,
+                imageIndex: 1,
+                lastOnline: 44),
+            const SizedBox(
+              height: 16,
+            ),
+            ChatSuggestion(
+                title: "Flutter 깨부시기",
+                description: "#플러터 #깨부셔요 #재밌어요",
+                minNum: 5,
                 maxNum: 8,
+                imageIndex: 2,
                 lastOnline: 30),
             const SizedBox(
               height: 16,
             ),
             ChatSuggestion(
-                title: "title",
-                description: "description",
-                minNum: 4,
-                maxNum: 8,
-                lastOnline: 30),
-            const SizedBox(
-              height: 16,
-            ),
-            ChatSuggestion(
-                title: "title",
-                description: "description",
-                minNum: 4,
-                maxNum: 8,
-                lastOnline: 30),
+                title: "Flutter 정복하기",
+                description: "#플러터 #정복해요 #대박",
+                minNum: 3,
+                maxNum: 4,
+                imageIndex: 1,
+                lastOnline: 56),
           ],
         ),
       ),

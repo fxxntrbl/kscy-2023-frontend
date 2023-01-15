@@ -5,6 +5,7 @@ class ChatSuggestion extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.description,
+      required this.imageIndex,
       required this.minNum,
       required this.maxNum,
       required this.lastOnline})
@@ -12,6 +13,7 @@ class ChatSuggestion extends StatelessWidget {
 
   final String title;
   final String description;
+  final int imageIndex;
   final int minNum;
   final int maxNum;
   final int lastOnline;
@@ -31,7 +33,7 @@ class ChatSuggestion extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/group1.png',
+              'assets/group${this.imageIndex}.png',
               width: 54,
               height: 54,
             ),

@@ -4,22 +4,24 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:kscy_2023_frontend/widgets/chat_suggestion.dart';
 
 class ChatWidget extends StatelessWidget {
-  const ChatWidget(
-      {Key? key,
-      required this.title,
-      required this.desc,
-      required this.imageIndex})
-      : super(key: key);
+  const ChatWidget({
+    Key? key,
+    required this.title,
+    required this.desc,
+    required this.imageIndex,
+    this.onTap,
+  }) : super(key: key);
 
   final String title;
   final String desc;
   final int imageIndex;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(8),
-      onTap: (){},
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(5),
         child: Row(children: [
