@@ -38,8 +38,8 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
   void initState() {
     pos = AnimatedValue(
         initialValue: 0,
-        duration: const Duration(milliseconds: 600),
-        curve: Curves.ease,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.fastOutSlowIn,
         vsync: this);
     pos.addListener(() {
       setState(() {});
@@ -153,7 +153,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
           },
           onHorizontalDragEnd: (details) {
             isDragging = false;
-            if (details.velocity.pixelsPerSecond.dx.abs() > 10) {
+            if (details.velocity.pixelsPerSecond.dx.abs() > 8) {
               double newValue = min(
                   widget.count - 1,
                   max(
@@ -187,20 +187,6 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
                   child: LayoutBuilder(builder: (context, innerConstraints) {
                     return Stack(
                       children: [
-                        ...cachedWidget.keys.map(
-                          (key) => key != firstIndex && key != (firstIndex + 1)
-                              ? Opacity(
-                                  key: ValueKey(key),
-                                  opacity: 0,
-                                  // maintainState: true,
-                                  child: SizedBox(
-                                    width: constraints.maxWidth,
-                                    height: innerConstraints.maxHeight,
-                                    child: buildPage(key),
-                                  ),
-                                )
-                              : const SizedBox(),
-                        ),
                         Positioned(
                           key: ValueKey(firstIndex),
                           left: (pos.value.truncate() - pos.value) *
