@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:kscy_2023_frontend/pages/social/study_group.dart';
 import 'package:kscy_2023_frontend/widgets/chat.dart';
 import 'package:kscy_2023_frontend/widgets/search.dart';
 import 'package:kscy_2023_frontend/widgets/search_tag.dart';
@@ -28,23 +29,37 @@ class _SocialPageState extends State<SocialPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        "내 스터디그룹",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                            letterSpacing: -0.4),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StudyGroupScreen(),
+                        ),
+                      );
+                    },
+                    borderRadius: BorderRadius.circular(8),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+                      child: Row(
+                        children: [
+                          Text(
+                            "내 스터디그룹",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                letterSpacing: -0.4),
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Icon(
+                            Icons.chevron_right_rounded,
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Icon(
-                        Icons.chevron_right_rounded,
-                        color: Color.fromRGBO(0, 0, 0, 0.5),
-                      ),
-                    ],
+                    ),
                   ),
                   const SizedBox(
                     height: 16,

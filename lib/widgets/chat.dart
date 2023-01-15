@@ -17,43 +17,48 @@ class ChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(children: [
-        Image.asset(
-          'assets/group$imageIndex.png',
-          width: 56,
-          height: 56,
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: Color.fromRGBO(0, 0, 0, 0.6),
-                letterSpacing: -0.4,
+    return InkWell(
+      borderRadius: BorderRadius.circular(8),
+      onTap: (){},
+      child: Container(
+        padding: const EdgeInsets.all(5),
+        child: Row(children: [
+          Image.asset(
+            'assets/group$imageIndex.png',
+            width: 56,
+            height: 56,
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Color.fromRGBO(0, 0, 0, 0.6),
+                  letterSpacing: -0.4,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Text(
-              desc,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Color.fromRGBO(0, 0, 0, 0.4),
-                letterSpacing: -0.4,
+              const SizedBox(
+                height: 4,
               ),
-            ),
-          ],
-        )
-      ]),
+              Text(
+                desc,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromRGBO(0, 0, 0, 0.4),
+                  letterSpacing: -0.4,
+                ),
+              ),
+            ],
+          )
+        ]),
+      ),
     );
   }
 }
