@@ -38,7 +38,7 @@ class _TimeLineLayoutState extends State<TimeLineLayout>
   void initState() {
     pos = AnimatedValue(
         initialValue: 0,
-        duration: const Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 600),
         curve: Curves.ease,
         vsync: this);
     pos.addListener(() {
