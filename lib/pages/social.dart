@@ -18,6 +18,7 @@ class _SocialPageState extends State<SocialPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 48),
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -25,9 +25,11 @@ class _SearchBarState extends State<SearchBar> {
         decoration: InputDecoration(
           hintText: "검색어를 입력해주세요",
           prefixIcon: Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding: const EdgeInsets.only(left: 20.0, right: 12),
             child: Icon(Icons.search_rounded),
           ),
+          contentPadding:
+              const EdgeInsets.only(left: 20, right: 20, top: 14, bottom: 14),
           iconColor: Color.fromRGBO(0, 0, 0, 0.5),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(99)),
